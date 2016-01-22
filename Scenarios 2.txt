@@ -1,0 +1,43 @@
+//Scenario 2: Kerwin writes an email to professor Cva.
+
+Objects:
+student, emailAddress, computer, app, message
+
+class Student{
+behavior:
+void opensTheComputer(Computer a)
+App opensTheEmailApp(Computer a)
+void typesTheRecipients(App b, EmailAddress c)
+void writesTheEmail(App b, Message d)
+void sendsEmail(EmailAddress c, Message d)
+}
+
+class EmailAddress{
+data:
+emailAddress
+}
+
+class Computer{
+
+}
+
+class App{
+
+}
+
+class Message{
+data:
+opening   issues   greeting
+}
+
+Student kerwin
+EmailAddress cvaEmailAddress
+Computer thinkpad
+App gmail
+Message someQuestions
+
+kerwin.opensTheComputer(Thinkpad)
+App gmail = kerwin.opensTheEmailApp(Thinkpad)
+kerwin.typesTheRecipients(gmail, cvaEmailAddress)
+kerwin.writesTheEmail(gmail, someQuestions)
+kerwin.sendsEmail(cvaEmailAddress, someQuestions)

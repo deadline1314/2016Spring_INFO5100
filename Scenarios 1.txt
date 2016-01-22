@@ -1,0 +1,42 @@
+//Scenario 1: Use computer to buy an iPhone6s on online Apple store.
+
+Objects:
+guest, computer, product, website, browser
+
+class Guest{
+behavior:
+void opensTheComputer(Computer a)
+Browser opensTheBrowser(Computer a)
+Website entersWebsiteAddress(Browser m, WebsiteAddress n)
+void checksOut(Product x)
+}
+
+class Computer{
+}
+
+class Product{
+data:
+name   picture    price
+}
+
+class Website{
+data:
+websiteAddress
+}
+
+class Browser{
+
+behavior:
+ProductInformation search(Product x)
+}
+
+Guest kerwin
+Computer thinkpad
+Product iPhone6s
+Website onlineAppleStore
+
+kerwin.openTheComputer(Thinkpad)
+Browser chorme = kerwin.openTheBrower(Thinkpad)
+kerwin.enterWebsiteAddress(chorme, onlineAppleStore)
+iPhone6sInofrmation = onlineAppleStore.search(iPhone6s)
+kerwin.checkOut(iPhone6s)

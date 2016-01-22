@@ -1,0 +1,43 @@
+//Scenario 3: Use iPhone to find and listen a song named ¡°Try¡± by App QQMusic
+
+Objects:
+listener, phone, song ,singer , app
+
+class Listener{
+behaviors:
+void unlocksThePhone(Phone a)
+App opensTheMusicApp(Phone a)
+void entersMusicName(App b, Song name)
+Song selectsRightMusic(Song name, Singer d)
+Void listenTo(Song c)
+}
+
+class Phone{
+
+}
+
+class Song{
+data:
+name   year   CD
+}
+
+class Singer{
+data:
+name   birth   gender
+}
+
+class App{
+
+}
+
+Listener kerwin
+phone iPhone6s
+song trySongbyColbie
+singer Colbie
+app qqMusic
+
+kerwin.unlocksThePhone(iPhone6s)
+App qqMusic = kerwin.opensTheMusicApp(iPhone6s)
+kerwin.entersMusicName(qqMusic, try)
+trySongByColbie = kerwin.selectsRightMusic(try, colbie)
+kerwin.listenTo(trySongByColbie)
