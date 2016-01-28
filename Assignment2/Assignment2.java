@@ -64,6 +64,7 @@ public class Assignment2 {
 	/**3.
 	 * Write a method to determine whether a number is prime 
 	 */
+	 //Input 1, Optput: true. Input 7, Output: false. Solve the bug
 	public boolean isPrimeNumber(int n){       //way 1
 		for (int i=2; i<= n; i++) {
 			if(n%i ==0)
@@ -111,6 +112,7 @@ public class Assignment2 {
 	/**6.
 	 * Find maximum and minimum in a given array, and return the max and min number
 	 */
+	 //input 1,2,8,4 output: 4,0  input -2,-7,-1 output: 0,-1. Solve the bug
 	public int[] findMinMax(int[] nums){
 		int[] maxmin = new int[2];
 		int max = maxmin[0];
@@ -136,7 +138,7 @@ public class Assignment2 {
 		{
 		fibo[0] = 1;
 		fibo[1] = 1;
-		for (int i=2; i<n; i++)
+		for (int i=2; i<n; i++)//i<n --> i<=n
 		fibo[i]= fibo[i-1]+fibo[i-2];
 		}
 		return fibo;
@@ -150,6 +152,7 @@ public class Assignment2 {
 	 * For example:
 	 * Given n = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one digit, return it.
 	 */
+	 //input 199 output 10. solve the bug
 	public int addDigits(int n){      //way 1
 		if(n<10) {
 			return n;
@@ -191,7 +194,7 @@ public class Assignment2 {
 			n= n/5;
 		return n == 1;
 	}
-	/*public boolean isUgly(int n){    //´íÎóµÄÔ­Òò£¬whileÔÚÍâ£¬ifÔÚÀïÃæ£¬µ±½á¹ûÎªfalseÊ±ÓÀÔ¶ÎÞ·¨Ìø³öÑ­»·
+	/*public boolean isUgly(int n){    //é”™è¯¯çš„åŽŸå› ï¼Œwhileåœ¨å¤–ï¼Œifåœ¨é‡Œé¢ï¼Œå½“ç»“æžœä¸ºfalseæ—¶æ°¸è¿œæ— æ³•è·³å‡ºå¾ªçŽ¯
 	while (n >= 2) {
 		if(n%2 ==0) {
 			n=n/2;
