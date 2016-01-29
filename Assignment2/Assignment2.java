@@ -66,7 +66,7 @@ public class Assignment2 {
 	 */
 	 //Input 1, Optput: true. Input 7, Output: false. Solve the bug
 	public boolean isPrimeNumber(int n){       //way 1
-		for (int i=2; i<= n; i++) {
+		for (int i=2; i< n; i++) {    //bugfix: delete the "=" to make sure the divisors will only be 2 and itself
 			if(n%i ==0)
 				return false;
 		}
@@ -74,7 +74,7 @@ public class Assignment2 {
 	}
 	/*public boolean isPrimeNumber (int n){    //way 2
 		boolean b = true;
-		for (int i=2; i<= n; i++) {
+		for (int i=2; i< n; i++) {
 			if(n%i ==0){
 				b = false;
 			}else{
@@ -113,10 +113,10 @@ public class Assignment2 {
 	 * Find maximum and minimum in a given array, and return the max and min number
 	 */
 	 //input 1,2,8,4 output: 4,0  input -2,-7,-1 output: 0,-1. Solve the bug
-	public int[] findMinMax(int[] nums){
+	public int[] findMinMax(int[] nums){ 
 		int[] maxmin = new int[2];
-		int max = maxmin[0];
-		int min = maxmin[1];
+		int max = maxmin[0] = nums[0];  //bugfix: give max and min initial value.
+		int min = maxmin[1] = nums[0];
 		for(int i=0; i< nums.length; i++) {
 			if(max < nums[i]){
 				maxmin[0] = nums[i];
@@ -138,7 +138,7 @@ public class Assignment2 {
 		{
 		fibo[0] = 1;
 		fibo[1] = 1;
-		for (int i=2; i<n; i++)//i<n --> i<=n
+		for (int i=2; i<=n; i++)//i<n --> i<=n  //both are correct......Still trying to figure it out.
 		fibo[i]= fibo[i-1]+fibo[i-2];
 		}
 		return fibo;
@@ -169,6 +169,8 @@ public class Assignment2 {
 			}
 			sumNumber= sumNumber%10+ sumNumber/10;
 		}
+		if(sumNumber == 10) //bugfix: add one situation.
+		sumNumber = 1;
 		return sumNumber;	          
 	}
  /* public int addDigits(int n) {       //way 2
