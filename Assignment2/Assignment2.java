@@ -138,7 +138,8 @@ public class Assignment2 {
 		{
 		fibo[0] = 1;
 		fibo[1] = 1;
-		for (int i=2; i<=n; i++)//i<n --> i<=n  //both are correct......Still trying to figure it out.
+		for (int i=2; i<=n; i++)//i<n --> i<=n  //both are correct......Still trying to figure it out. 
+		            //因为我在方法中写了i<=n，所以会覆盖声明中的方法，所以就会出现这种情况，但是应该一致，i<=n比较安全
 		fibo[i]= fibo[i-1]+fibo[i-2];
 		}
 		return fibo;
