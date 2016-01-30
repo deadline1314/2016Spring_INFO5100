@@ -66,6 +66,7 @@ public class Assignment2 {
 	 */
 	 //Input 1, Optput: true. Input 7, Output: false. Solve the bug
 	public boolean isPrimeNumber(int n){       //way 1
+		if(n<2) return false;
 		for (int i=2; i< n; i++) {    //bugfix: delete the "=" to make sure the divisors will only be 2 and itself
 			if(n%i ==0)
 				return false;
@@ -115,13 +116,16 @@ public class Assignment2 {
 	 //input 1,2,8,4 output: 4,0  input -2,-7,-1 output: 0,-1. Solve the bug
 	public int[] findMinMax(int[] nums){ 
 		int[] maxmin = new int[2];
-		int max = maxmin[0] = nums[0];  //bugfix: give max and min initial value.
-		int min = maxmin[1] = nums[0];
+		/*int max = */maxmin[0] = nums[0];  //bugfix: give max and min initial value.
+		/*int min = */maxmin[1] = nums[0];  
+		 //if use int max=maxmin[0] = nums[0], the max will not be used in the loop but will be a fixed number.
 		for(int i=0; i< nums.length; i++) {
-			if(max < nums[i]){
+			/*if(max < nums[i]) {*/
+			if(maxmin[0] < nums[i]){
 				maxmin[0] = nums[i];
 	}
-			if(min > nums[i]){
+			/*if(min > nums[i]) {*/
+			if(maxmin[1] > nums[i]){
 				maxmin[1] = nums[i];
 			}
 		}
@@ -154,7 +158,7 @@ public class Assignment2 {
 	 * Given n = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one digit, return it.
 	 */
 	 //input 199 output 10. solve the bug
-	public int addDigits(int n){      //way 1
+	/*public int addDigits(int n){
 		if(n<10) {
 			return n;
 		}
@@ -164,7 +168,7 @@ public class Assignment2 {
 			sumNumber= sumNumber + result % 10;
 			result= result / 10;
 			if(result<10){
-			sumNumber= sumNumber + result;
+			sumNumber= sumNumber + result; //can not make sure the sumNumber here. eg: sumNumber=29,38,39... here.
 			}else{
 				continue;
 			}
@@ -173,6 +177,17 @@ public class Assignment2 {
 		if(sumNumber == 10) //bugfix: add one situation.
 		sumNumber = 1;
 		return sumNumber;	          
+	}*/
+	public int addDigits(int n){ //nest loop.
+		while(n>9){
+			int temp = 0;
+			while(n!=0){ //make calculate to get and sum every digit.
+				temp += n%10;
+				n /= 10;
+			}
+			n = temp; // if the sum still>9, contine the first level loop
+		}
+		return n;
 	}
  /* public int addDigits(int n) {       //way 2
 	    if (n <=0) {
