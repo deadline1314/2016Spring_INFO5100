@@ -201,7 +201,7 @@ public class Assignment2 {
 	 * For example, 6, 8 are ugly, while 14 is not ugly since it includes another prime factor 7.
 	 * Note that 1 is typically treated as an ugly number.
 	 */
-	public boolean isUgly(int n){     //correct answer
+	public boolean isUgly(int n){     //way 1
 		if (n <=0)
 			return false;
 		while(n % 2 == 0)
@@ -212,19 +212,24 @@ public class Assignment2 {
 			n= n/5;
 		return n == 1;
 	}
-	/*public boolean isUgly(int n){    //错误的原因，while在外，if在里面，当结果为false时永远无法跳出循环
+	/*public boolean isUgly(int n){    //错误的原因，while在外，if在里面，当结果为false时永远无法跳出循环,需要加continue
+					//way 2
 	while (n >= 2) {
 		if(n%2 ==0) {
 			n=n/2;
-		}else
+			continue;
+		}
 		if(n%3 ==0) {
 			n=n/3;
-		}else
+			continue;
+		}
 		if(n%5 ==0) {
 			n=n/5;
+			continue;
 		}
-		return n ==1;
-		}	
+		return false;
+		}
+		return true;
 	}				
 }*/
 }
