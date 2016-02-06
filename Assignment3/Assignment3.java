@@ -53,8 +53,9 @@ public class Assignment3 {
 	public boolean findDuplicates(int[] nums){
 		int result= 0;
 		for(int i=1; i<nums.length; i++) {
-			result= nums[i]- nums[i-1];//needn't 'result', 'if(nums[i]==nums[i-1]) return true;' is enough
-		if(result == 0)
+			/*result= nums[i]- nums[i-1];//needn't 'result', 'if(nums[i]==nums[i-1]) return true;' is enough
+		if(result == 0)*/
+		if(nums[i]==nums[i-1])
 			return true;
 		}
 		return false;
@@ -65,10 +66,13 @@ public class Assignment3 {
 	 * You should return a new array which doesn't contain that number.
 	 * For example, input {1,2,3,4,5}, index = 1, you should return {1,3,4,5}.
 	 */
-	public int[] deteleElement(int[] nums,int index){//you should return a new array, not print it.         -3
+	/*public int[] deteleElement(int[] nums,int index){   //fixed version(way 1)
+		if(index >=nums.length)
+		return nums;
+		int[] fianlArray = new int[nums.length-1];
 		if(index ==0 && nums.length !=0){
 			for(int i=1; i< nums.length; i++) {
-				System.out.println(nums[i]);
+				fianlArray[i-1]=nums[i];
 			}
 		}
 		if(index ==0 && nums.length ==1){
@@ -76,23 +80,29 @@ public class Assignment3 {
 			}
 		if (index>0 && index<nums.length-1) {
 			for(int i=0; i<index; i++) {
-				System.out.println(nums[i]);
+				fianlArray[i]=nums[i];
 			}
 			for(int i=index+1; i<nums.length; i++) {
-				System.out.println(nums[i]);
+				fianlArray[i-1]=nums[i];
 			}
 		}
 		if (index == nums.length-1) {
 			for(int i=0; i<nums.length-1; i++) {
-				System.out.println(nums[i]);
+				fianlArray[i]=nums[i];
 			}
 		}
-		if(index >=nums.length) {
-			for(int i=0; i<nums.length;i++) {
-				System.out.println(nums[i]);
-			}
+		return fianlArray;	
+	}*/
+	
+	public int[] deteleElement(int[] nums,int index){ //much simple way (way 2)
+		if(index>=nums.length) return nums;
+		int res[] = new int[nums.length-1];
+		int pointer = 0;
+		for(int i=0;i<nums.length;i++){
+			if(i==index) continue; //use continue can skip the index's data
+			res[pointer++] = nums[i]; //[pointer++] can automatically increase the length of the list
 		}
-		return nums;	
+		return res;
 	}
 	
 	/**5.
@@ -100,7 +110,7 @@ public class Assignment3 {
 	 * For example, n = 100, return 1
 	 */
 	public int countDigits(int n){//input -10, output -1. should be 0                           -2
-		String num = Integer.toString(n);
+		String num = Integer.toString(Math.abs(n)); //use Math.abs to dismiss the "-"
 		int digits = num.length();
 		int result= n%digits;
 		return result;
