@@ -53,7 +53,7 @@ public class Assignment3 {
 	public boolean findDuplicates(int[] nums){
 		int result= 0;
 		for(int i=1; i<nums.length; i++) {
-			result= nums[i]- nums[i-1];
+			result= nums[i]- nums[i-1];//needn't 'result', 'if(nums[i]==nums[i-1]) return true;' is enough
 		if(result == 0)
 			return true;
 		}
@@ -65,7 +65,7 @@ public class Assignment3 {
 	 * You should return a new array which doesn't contain that number.
 	 * For example, input {1,2,3,4,5}, index = 1, you should return {1,3,4,5}.
 	 */
-	public int[] deteleElement(int[] nums,int index){
+	public int[] deteleElement(int[] nums,int index){//you should return a new array, not print it.         -3
 		if(index ==0 && nums.length !=0){
 			for(int i=1; i< nums.length; i++) {
 				System.out.println(nums[i]);
@@ -99,7 +99,7 @@ public class Assignment3 {
 	 * Given a integer 'n', return n%count, count is the number of digits of n
 	 * For example, n = 100, return 1
 	 */
-	public int countDigits(int n){
+	public int countDigits(int n){//input -10, output -1. should be 0                           -2
 		String num = Integer.toString(n);
 		int digits = num.length();
 		int result= n%digits;
