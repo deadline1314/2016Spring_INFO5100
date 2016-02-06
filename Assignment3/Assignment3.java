@@ -115,6 +115,16 @@ public class Assignment3 {
 		int result= n%digits;
 		return result;
 	}
+	/*public int countDigits(int n){  //way 2
+		if(n==0) return 0;
+		int count = 0;
+		int temp = n;
+		while(temp!=0){
+			temp/=10;
+			count++;
+		}
+		return n%count;
+	}*/
 	
 	/**6.
 	 * Given a integer 'n', if n is odd, print n odd numbers, if n is even, print n even numbers.
@@ -135,6 +145,13 @@ public class Assignment3 {
 		for(int i=0; i<n; i++)
 		System.out.print(result[i]+"  ");
 	}
+	/*public void printNumbers(int n){
+		int print = n%2==0?0:1; //x=blooean?A:B, if blooean=true, x=A; if blooean=false, x=B
+		for(int i=0;i<n;i++){
+			System.out.println(print);
+			print+=2;
+		}
+	}*/
 	
 	
 	//bonus
