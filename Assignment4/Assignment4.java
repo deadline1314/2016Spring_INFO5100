@@ -63,7 +63,7 @@ public class Assignment4 {
 	 * 3. Reverse a string by words. Do not use 'split' function. e.g.
 	 * "I like soccer" --> "soccer like I"
 	 */
-	public String reverseString2(String str) { // need improvement
+	public String reverseString2(String str) { 
 
 		if (str == null) {
 			return null;
