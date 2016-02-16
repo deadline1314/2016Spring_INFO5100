@@ -90,6 +90,7 @@ public class Assignment4 {
 	 * not use 'split' function. e.g. "I like soccer" --> 3. "I have 15 dollars"
 	 * --> 4
 	 */
+//input "hellow ", output 2. And think about ESC, what if input is "I am\nstudent".                -2
 	public int countWords(String str) {
 		if (str == null) {
 			return 0;
@@ -110,6 +111,7 @@ public class Assignment4 {
 	 * 5. Capitalize the first letters of words in a String. Do not use 'split'
 	 * function. e.g. "I like soccer" --> "I Like Soccer".
 	 */
+//if the input has a ' ' at the end, like "I like soccer     ", line 122 will have a 'out of bound' error.           -1
 	public String capitalizeLetters(String str) {
 		if (str == null) {
 			return null;
@@ -183,6 +185,7 @@ public class Assignment4 {
 	/**
 	 * 8. Count and Say. Count each character. e.g. "aabacbaa" --> "5a2b1c"
 	 */
+//please maintain the A~Z sequence. and try to find a faster algorithm.
 	public String countAndSay(String str) {
 		if (str == null) {
 			return null;
