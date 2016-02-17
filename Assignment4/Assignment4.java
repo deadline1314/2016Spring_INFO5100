@@ -27,6 +27,12 @@ public class Assignment4 {
 			return i;
 		}
 	}
+	
+	/*public int lengthOfLastWord(String str){ //way 2
+		str = str.trim();
+	return str.length()-1-str.lastIndexOf(" ");
+	}
+	*/
 
 	/**
 	 * 2. Reverse a string by letters. Do not use 'split' function. e.g.
@@ -36,7 +42,7 @@ public class Assignment4 {
 		if (str == null) {
 			return null;
 		}
-		char[] array = str.toCharArray(); // String --> char[]
+		char[] array = str.trim().toCharArray(); // String --> char[]
 		int i = 0;
 		int j = str.length() - 1;
 		while (i < j) {
@@ -58,6 +64,15 @@ public class Assignment4 {
 		}
 		return result;
 	}*/
+	
+	/*public String reverseString1(String str){
+		String res = "";
+		for(char c : str.toCharArray()){
+			res = c+res;
+		}
+		return res;
+	}
+	*/
 
 	/**
 	 * 3. Reverse a string by words. Do not use 'split' function. e.g.
@@ -84,6 +99,19 @@ public class Assignment4 {
 		}
 		return result.trim();
 	}
+	
+	/*public String reverseString2(String str){
+		String res = "";
+		for(int i=0; i<str.length(); i++){
+			String temp = "";
+			while(i<str.length() && str.charAt(i)!=' '){
+				temp = temp+str.charAt(i++);
+			}
+			res = temp+ " "+ res;
+		}
+		return res.trim();
+	}
+	*/
 
 	/**
 	 * 4. Count how many words in a string. Numbers are regarded as a word. Do
@@ -91,20 +119,38 @@ public class Assignment4 {
 	 * --> 4
 	 */
 //input "hellow ", output 2. And think about ESC, what if input is "I am\nstudent".                -2
-	public int countWords(String str) {
+	/*public int countWords(String str) {
 		if (str == null) {
 			return 0;
 		}
 		if (str.trim().length() == 0) {
 			return 0;
 		} else {
-			char[] array = str.toCharArray();
+			char[] array = str.trim().toCharArray();
 			int result = 0;
 			for (int i = 0; i < array.length; i++)
 				if (String.valueOf(array[i]).equals(" "))
 					result++;
 			return result + 1;
 		}
+	}*/
+	public int countWords(String str){
+		int count = 0;
+		str = str.trim();
+		if(str.equals("")) return 0;
+		boolean isWord = false;
+		for(int i=0; i<str.length(); i++){
+			char c = str.charAt(i);
+			if(Character.isLetter(c)||Character.isDigit(c)){ //decide whether char c is character and digit or not
+				isWord = true;
+				continue;
+			}
+			else if(isWord){
+				count++;
+				isWord = false;
+			}
+		}
+		return count+1;
 	}
 
 	/**
@@ -127,6 +173,21 @@ public class Assignment4 {
 		}
 
 	}
+	
+	/*public String capitalizeLetters(String str){ //way2, calculate the ASCII distance between 'a' and 'A'
+		int dis = 'a' - 'A';
+		char letters[] = str.toCharArray();
+		for(int i=0; i<letters.length; i++){
+			if(Character.isLetter(letters[i])){ //Character.isLetter() to confirm whether is a char or not
+				if(letters[i]>'Z'){
+					letters[i]-=dis;
+				}
+			}
+			while(i<letters.length&&Character.isLetter(letters[i])) i++;
+		}
+		return new String(letters);
+	}
+	*/
 
 	/**
 	 * 6. Use enum to represent the type of vehicles, like Bus, Motorcycle,
@@ -209,6 +270,20 @@ public class Assignment4 {
 		}
 		return result;
 	}
+	/*public String countAndSay(String str){ //way2, outcome according to the alphbate order
+		int letters[] = new int[256];
+		for(char c : str.toCharArray()){
+			letters[c]++;
+		}
+		String res = "";
+		for(char i=0;i<256;i++){
+			if(letters[i]!=0){
+				res+=letters[i]+""+i;
+			}
+		}
+		return res;
+	}
+	*/
 
 	/**
 	 * 9. Compare version number. If equal, return 0. if larger, return 1. if
