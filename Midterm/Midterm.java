@@ -12,7 +12,7 @@ public class Midterm {
 	public void moveZeroes(int[] nums){
 		int pointer = 0;
 		int temp;
-		for(int i=0; i < nums.length - 1; i++){
+		for(int i=0; i < nums.length - 1; i++){//why "nums.length - 1" ?           -2
 			if(nums[i] != 0){
 			 temp = nums[i];
 			 nums[i] = nums[pointer];
@@ -28,7 +28,7 @@ public class Midterm {
 	 * 2.Given two strings s and t, write a function to determine if t is an
 	 * anagram of s.
 	 */
-	public boolean isAnagram(String s, String t) {
+	public boolean isAnagram(String s, String t) {// sort is too expensive.      -2
 		if (s.length() != t.length())
 			return false;
 		char[] ss = s.toCharArray();
@@ -48,7 +48,7 @@ public class Midterm {
 	 * least twice in the array, and it should return false if every element is
 	 * distinct. ->O(N) time.
 	 */
-	public boolean containsDuplicate(int[] nums) {
+	public boolean containsDuplicate(int[] nums) {//+5
 		HashSet<Integer> hashset = new HashSet<Integer>();
 		for(int i=0; i<nums.length; i++){
 			if(hashset.contains(nums[i]))
@@ -78,7 +78,7 @@ public class Midterm {
 	 * number. For example: Input: nums={2,7,11,15}, target=9, return 1. ->O(N)
 	 * time
 	 */
-	public int twoSum(int[] nums, int target) {
+	public int twoSum(int[] nums, int target) {//+15
 		int counter =0;
 		HashSet<Integer> hashset = new HashSet<Integer>();
 		for(int i=0; i< nums.length; i++){
